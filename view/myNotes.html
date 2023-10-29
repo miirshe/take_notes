@@ -1,0 +1,14 @@
+<figure class=" task w-full h-fit bg-white/95 flex flex-col p-5 rounded shadow space-y-4 cursor-pointer
+hover:scale-105 transition-all ease-in-out">
+    <h3>{%title%}</h3>
+    <hr class=" bg-teal-500">
+    <p>{%description%}</p>
+    <div class="flex flex-row justify-end items-center gap-5">
+        <a href="/updatePage?id={%id%}">
+            <i class="fa fa-pencil text-teal-500 text-base"></i>
+        </a>
+        <a href="/delete?id={%id%}">
+            <i class="fa fa-trash-can text-red-500 text-base"></i>
+        </a>
+    </div>
+</figure>

@@ -1,0 +1,29 @@
+<div class="w-full h-fit lg:w-[40%] p-2  bg-white/95 rounded shadow-md">
+    <form class="w-full space-y-3 mt-5 bg-white/95" action="/update" enctype="multipart/form-data" method="post">
+        <div class="w-full">
+            <input name="id" id="id" class="w-full outline-teal-600 shadow rounded px-4 py-3" type="number" value="{%id%}" placeholder="Note id ...." required>
+        </div>
+        <div class="w-full">
+            <input name="title" id="title" class="w-full outline-teal-600 shadow rounded px-4 py-3" type="text" value="{%title%}" placeholder="Note title ...." required>
+        </div>
+        <div class="w-full">
+            <textarea aria-valuenow="{%description%}" class="w-full bg-white/95 outline-teal-600 shadow rounded px-4 py-3" name="description" id="description" cols="30" rows="10" placeholder="Note description ...." required></textarea>
+        </div>
+        <button type="submit" class="w-full hover:bg-teal-600 hover:text-white transition-all ease-in-out bg-white/95 shadow rounded px-4 py-3">Save Note</button>
+    </form>
+</div>
+<div class=" w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="notes-container">
+    <figure class=" task w-full h-fit bg-white/95 flex flex-col p-5 rounded shadow space-y-4 cursor-pointer hover:scale-105 transition-all ease-in-out">
+        <h3>{%title%}</h3>
+        <hr class=" bg-teal-500">
+        <p>{%description%}</p>
+        <div class="flex flex-row justify-end items-center gap-5">
+            <a href="/update?id={%id%}">
+                <i class="fa fa-pencil text-teal-500 text-base"></i>
+            </a>
+            <a href="/delete?id={%id%}">
+                <i class="fa fa-trash-can text-red-500 text-base"></i>
+            </a>
+        </div>
+    </figure>
+</div>

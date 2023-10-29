@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/2f413cac5f.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>📒textNote</title>
+</head>
+
+<style>
+    .completed_task p,
+    .completed_task h3 {
+        text-decoration: line-through;
+    }
+</style>
+
+<body>
+    <div class=" w-full bg-teal-600 p-5 space-y-3">
+        <div class="w-[95%] mx-auto p-3 grid grid-cols-1 md:grid-cols-2 gap-3 items-center">
+            <div class="w-full">
+                <h1 class="mt-5 text-3xl tracking-widest leading-10 text-white/95 italic">📒Text Note</h1>
+            </div>
+            <form class="w-full flex flex-col lg:flex-row gap-5" action="/search" enctype="multipart/form-data" method="post">
+                <input class="w-full outline-teal-600 shadow rounded px-4 py-3" name="search" id="search" type="text" placeholder="search for title...">
+                <button type="submit" class="w-full lg:w-fit hover:bg-teal-600 hover:text-white transition-all ease-in-out bg-white/95 shadow rounded px-4 py-3">Search</button>
+            </form>
+        </div>
+        <hr class="bg-white/95 mt-4 ">
+        <div class="w-[95%] mx-auto p-3 flex flex-col lg:flex-row gap-5">
+            <div class="w-full h-fit lg:w-[40%] p-2  bg-white/95 rounded shadow-md">
+                <form class="w-full space-y-3 mt-5 bg-white/95" action="/add" enctype="multipart/form-data" method="post">
+                    <div class="w-full">
+                        <input name="title" id="title" class="w-full outline-teal-600 shadow rounded px-4 py-3" type="text" placeholder="Note title ...." required>
+                    </div>
+                    <div class="w-full">
+                        <textarea class="w-full bg-white/95 outline-teal-600 shadow rounded px-4 py-3" name="description" id="description" cols="30" rows="10" placeholder="Note description ...." required></textarea>
+                    </div>
+                    <button type="submit" class="w-full hover:bg-teal-600 hover:text-white transition-all ease-in-out bg-white/95 shadow rounded px-4 py-3">Save Note</button>
+                </form>
+            </div>
+            <div class=" w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="notes-container">
+                {%myNotes%}
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const taskCompleted = document.getElementById('notes-container');
+    taskCompleted.addEventListener('click', function(e) {
+        console.log(e)
+        if (e.target.classList.contains('task')) {
+            e.target.classList.toggle('completed_task');
+        }
+    })
+</script>
+
+</html>

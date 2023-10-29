@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/2f413cac5f.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>📒textNote</title>
+</head>
+
+<style>
+    .completed_task p,
+    .completed_task h3 {
+        text-decoration: line-through;
+    }
+</style>
+
+<body>
+    <div class=" w-full bg-teal-600 p-5 space-y-3">
+        <div class="w-[95%] mx-auto p-3">
+            <h1 class="mt-5 text-3xl tracking-widest leading-10 text-white/95 italic">📒Text Note</h1>
+        </div>
+        <hr class="bg-white/95 mt-4 ">
+        <div class="w-[95%] mx-auto p-3 flex flex-col lg:flex-row gap-5">
+            {%updateMynotes%}
+        </div>
+    </div>
+</body>
+<script>
+    const taskCompleted = document.getElementById('notes-container');
+    taskCompleted.addEventListener('click', function(e) {
+        console.log(e)
+        if (e.target.classList.contains('task')) {
+            e.target.classList.toggle('completed_task');
+        }
+    })
+</script>
+
+</html>
